@@ -9,3 +9,4 @@
 
 [node name="ball" parent="." instance=ExtResource("1_u0cxo")]
 position = Vector2(128, 128)
+mass = 0.1
