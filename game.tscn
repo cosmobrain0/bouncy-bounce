@@ -8,6 +8,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Ground" parent="." instance=ExtResource("1_rio45")]
+position = Vector2(600, 645)
 
 [node name="ball" parent="." instance=ExtResource("1_u0cxo")]
 position = Vector2(128, 128)
