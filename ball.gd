@@ -16,6 +16,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if game_over:
+		SignalBus.game_over.emit()
 		get_tree().reload_current_scene()
 		return
 	if abs(linear_velocity.y) <= 0.00:
@@ -28,13 +29,10 @@ func _process(delta: float) -> void:
 	
 	if on_ground && sprite.animation != moving_animation:
 		sprite.animation = moving_animation
-		print("Set to movement animation")
 	elif !on_ground && sprite.animation != standing_still_animation:
 		sprite.animation = standing_still_animation
 		sprite.play()
-		print("Set to still animation")
-	
+
 
 func _on_spike_touched_ball():
-	# TODO: health system maybe
 	game_over = true

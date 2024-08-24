@@ -1,21 +1,17 @@
 extends Label
 
-var score: float = 0
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	score = 0
-	SignalBus.spike_despawn.connect(_on_spike_despawn)
-	update_text()
+	SignalBus.score_changed.connect(_on_score_changed)
+	update_text(Score.score, Score.highscore)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func update_text():
-	text = "score: %s" % str(score)
+func update_text(score: int, highscore: int) -> void:
+	text = "Score: %s | Highscore: %s" % [str(score), str(highscore)]
 
-func _on_spike_despawn():
-	score += 1
-	update_text()
+func _on_score_changed(old_score: int, new_score: int) -> void:
+	update_text(new_score, Score.highscore)
