@@ -11,8 +11,7 @@ func _ready() -> void:
 
 func update_score(new_score: int) -> void:
 	var old_score: int = score
-	score = new_score
-	print("Score is %s and highscore is %s" % [str(score), str(highscore)])
+	score = new_score	
 	highscore = max(new_score, highscore)
 	if old_score != new_score:
 		SignalBus.score_changed.emit(old_score, new_score)

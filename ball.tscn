@@ -39,6 +39,7 @@ script = ExtResource("1_16c1j")
 shape = SubResource("RectangleShape2D_6lyp6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(3.985, 3.985)
 sprite_frames = SubResource("SpriteFrames_w3sgr")
 animation = &"player-movement"
